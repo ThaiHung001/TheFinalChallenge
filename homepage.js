@@ -1,72 +1,59 @@
 import {
-    addDoc,
-    collection,
-    deleteDoc,
-    deleteField,
-    doc,
-    getDocs,
-    updateDoc,
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  
-  import { db } from './scripts/firebase.js';
-  
-  console.log("đang chạy file script.js");
-  
-  // Chạy thử C,R,U,D để xem firestore hoạt động như nào nhé?
-  // try {
-  //   const docRef = await addDoc(collection(db, "posts"), {
-  //     user: "Nguyen",
-  //     data: post
-  //   });
-  //   console.log("in ra id rồi nhé");
-  //   console.log("Document written with ID: ", docRef.id); /// hiển thị id của doc đó
-  // } catch (e) {
-  //   console.error("Error adding document: ", e); // hiển thị lỗi nếu có.
-  // }
-  
-  
-  ////// Read Database.
+  getDocs,
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+import { db } from './firebase.js';
+
+async function createPost(content) {
+  try {
+    const docRef = await addDoc(collection(db, "posts"), {
+      content: content,
+      user: "tèo"
+    });
+    console.log("Document written with ID: ", docRef.id);
+    displayPosts(); // Refresh the posts after a new one is created
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
+async function getPosts() {
   const querySnapshot = await getDocs(collection(db, "posts"));
-
+  let posts = [];
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    posts.push(doc.data());
   });
-  
-  /// lấy ra tất cả data trong collection.
+  return posts;
+}
 
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+async function displayPosts() {
+  let posts = await getPosts();
+  shuffleArray(posts);
+  const postsContainer = document.getElementById('posts');
+  // Clear the current posts
+  postsContainer.innerHTML = '';
+  posts.forEach(post => {
+    let postElement = document.createElement('div');
+    postElement.className = 'post';
+    postElement.innerHTML = `
+      <h4>${post.user}</h4>
+      <p>${post.content}</p>
+    `;
+    // Add the new post to the top of the posts container
+    postsContainer.prepend(postElement);
   });
+}
 
-
-  // let post_box = document.getElementById('post_box')
-  // post_box.addEventListener('submit', function(event) {
-
-
-  // })
-    // let post = document.getElementById('post_input').value;
-
-
-  ///// Update database
-  const user1 = doc(db, "posts", "posts1");
-  await updateDoc(posts1, {
-    user: 1000,
-    data: post
-  });
-  
-  
-  
-  ///// Delete database
-  
-  // // delele doc
-  // await deleteDoc(doc(db, "posts", "posts1"));
-  
-  
-  // //// Delete field
-  // const userRef = doc(db, 'posts', 'aKyCh8NepAu068Ips0hy');
-  
-  // // Remove the 'born' field from the document
-  // await updateDoc(userRef, {
-  //   born: deleteField()
-  // });
+document.getElementById('post_confirm').addEventListener('click', function () {
+  var content = document.getElementById('post_input').value;
+  createPost(content);
+});

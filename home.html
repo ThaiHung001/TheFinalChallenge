@@ -16,21 +16,8 @@
 
     <!-- kết nối file css  -->
     <link rel="stylesheet" href="styles/homepage.css">
-
-
-    <style>
-
-    </style>
 </head>
-
 <body>
-    <!-- <header id="header">
-        <h1 id="title">SociNet</h1>
-        <form id="search-form">
-            <input type="text" id="search" placeholder="Search...">
-            <button type="submit">Go</button>
-        </form>
-    </header> -->
     <header id="header">
         <h1 id="title" style="margin-bottom: 0px;">SociNet</h1>
         <input type="text" id="search" placeholder="Search...">
@@ -48,40 +35,13 @@
             <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 10px; display: flex; align-items: center;" id="post_box">
                 <textarea name="post" rows="4" cols="50" id="post_input"
                     style="flex-grow: 1; resize: vertical; border-radius: 5px; height: 40px; padding: 5px; margin-bottom:0px"></textarea>
-                <input type="submit" value="Post" id="thing_to_post" id="post_confirm"
+                <input type="submit" value="Post" id="post_confirm"
                     style="background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; height: 45px; width: 50px;margin-left: 10px;">
             </div>
             <div id="posts">
                 <div class="post">
                     <h4>John Doe</h4>
                     <p>Just had a great lunch with Jane! #foodie #friends</p>
-                    <!-- <div >
-                        <img src="https://via.placeholder.com/300x200" alt="">
-                    </div> -->
-                </div>
-                <div class="post">
-                    <h4>John Doe</h4>
-                    <p>Just had a great lunch with Jane! #foodie #friends</p>
-                </div>
-                <div class="post">
-                    <h4>John Doe</h4>
-                    <p>Hey, something wrong</p>
-                </div>
-                <div class="post">
-                    <h4>John Doe</h4>
-                    <p>Why there are too much John Doe</p>
-                </div>
-                <div class="post">
-                    <h4>John Doe</h4>
-                    <p>I guess the creator is lazy again</p>
-                </div>
-                <div class="post">
-                    <h4>John Doe</h4>
-                    <p>same</p>
-                </div>
-                <div class="post">
-                    <h4>NTH</h4>
-                    <p>???</p>
                 </div>
 
             </div>
@@ -98,8 +58,8 @@
     </main>
 
     <script type="module" src="homepage.js"></script>
-    <script type="module" src="scripts/firebase.js"></script>
-    <script type="module" src="login.js"></script>
-    <script type="module" src="signUp.js"></script>
+    <script type="module" src="./scripts/firebase.js"></script>
+    <!-- <script type="module" src="login.js"></script> -->
+    <!-- <script type="module" src="signUp.js"></script> -->
     <script src="controller.js"></script>
 </body>
