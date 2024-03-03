@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociNet</title>
+    <!-- Kết nối bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+    <!-- kết nối file css  -->
+    <link rel="stylesheet" href="styles/homepage.css">
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- <header id="header">
+        <h1 id="title">SociNet</h1>
+        <form id="search-form">
+            <input type="text" id="search" placeholder="Search...">
+            <button type="submit">Go</button>
+        </form>
+    </header> -->
+    <header id="header">
+        <h1 id="title" style="margin-bottom: 0px;">SociNet</h1>
+        <input type="text" id="search" placeholder="Search...">
+    </header>
+    <main id="content">
+        <div id="left-column">
+            <h2>Friends</h2>
+            <ul>
+                <li>John Doe</li>
+                <li>Jane Smith</li>
+                <li>Alice Johnson</li>
+            </ul>
+        </div>
+        <div id="center-column">
+            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 10px; display: flex; align-items: center;" id="post_box">
+                <textarea name="post" rows="4" cols="50" id="post_input"
+                    style="flex-grow: 1; resize: vertical; border-radius: 5px; height: 40px; padding: 5px; margin-bottom:0px"></textarea>
+                <input type="submit" value="Post" id="thing_to_post" id="post_confirm"
+                    style="background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; height: 45px; width: 50px;margin-left: 10px;">
+            </div>
+            <div id="posts">
+                <div class="post">
+                    <h4>John Doe</h4>
+                    <p>Just had a great lunch with Jane! #foodie #friends</p>
+                    <!-- <div >
+                        <img src="https://via.placeholder.com/300x200" alt="">
+                    </div> -->
+                </div>
+                <div class="post">
+                    <h4>John Doe</h4>
+                    <p>Just had a great lunch with Jane! #foodie #friends</p>
+                </div>
+                <div class="post">
+                    <h4>John Doe</h4>
+                    <p>Hey, something wrong</p>
+                </div>
+                <div class="post">
+                    <h4>John Doe</h4>
+                    <p>Why there are too much John Doe</p>
+                </div>
+                <div class="post">
+                    <h4>John Doe</h4>
+                    <p>I guess the creator is lazy again</p>
+                </div>
+                <div class="post">
+                    <h4>John Doe</h4>
+                    <p>same</p>
+                </div>
+                <div class="post">
+                    <h4>NTH</h4>
+                    <p>???</p>
+                </div>
+
+            </div>
+        </div>
+        <div id="right-column">
+            <h2>Trending</h2>
+            <ul>
+                <li>#TechNews</li>
+                <li>#SportsUpdate</li>
+                <li>#TravelGoals</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <script type="module" src="homepage.js"></script>
+    <script type="module" src="scripts/firebase.js"></script>
+    <script type="module" src="login.js"></script>
+    <script type="module" src="signUp.js"></script>
+    <script src="controller.js"></script>
+</body>
